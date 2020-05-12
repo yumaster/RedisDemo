@@ -1,0 +1,15 @@
+C:\Users\yumas\Desktop\WebApp\RedisStudy.DAL.EF\bin\Debug\RedisStudy.DAL.EF.dll.config
+C:\Users\yumas\Desktop\WebApp\RedisStudy.DAL.EF\bin\Debug\RedisStudy.DAL.EF.dll
+C:\Users\yumas\Desktop\WebApp\RedisStudy.DAL.EF\bin\Debug\RedisStudy.DAL.EF.pdb
+C:\Users\yumas\Desktop\WebApp\RedisStudy.DAL.EF\bin\Debug\EntityFramework.dll
+C:\Users\yumas\Desktop\WebApp\RedisStudy.DAL.EF\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\yumas\Desktop\WebApp\RedisStudy.DAL.EF\bin\Debug\RedisStudy.Models.dll
+C:\Users\yumas\Desktop\WebApp\RedisStudy.DAL.EF\bin\Debug\RedisStudy.Models.pdb
+C:\Users\yumas\Desktop\WebApp\RedisStudy.DAL.EF\bin\Debug\RedisStudy.Models.dll.config
+C:\Users\yumas\Desktop\WebApp\RedisStudy.DAL.EF\bin\Debug\EntityFramework.xml
+C:\Users\yumas\Desktop\WebApp\RedisStudy.DAL.EF\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\yumas\Desktop\WebApp\RedisStudy.DAL.EF\obj\Debug\RedisStudy.DAL.EF.csprojAssemblyReference.cache
+C:\Users\yumas\Desktop\WebApp\RedisStudy.DAL.EF\obj\Debug\RedisStudy.DAL.EF.csproj.CoreCompileInputs.cache
+C:\Users\yumas\Desktop\WebApp\RedisStudy.DAL.EF\obj\Debug\RedisStudy.DAL.EF.csproj.CopyComplete
+C:\Users\yumas\Desktop\WebApp\RedisStudy.DAL.EF\obj\Debug\RedisStudy.DAL.EF.dll
+C:\Users\yumas\Desktop\WebApp\RedisStudy.DAL.EF\obj\Debug\RedisStudy.DAL.EF.pdb

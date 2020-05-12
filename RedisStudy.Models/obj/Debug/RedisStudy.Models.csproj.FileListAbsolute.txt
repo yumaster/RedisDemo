@@ -1,0 +1,12 @@
+C:\Users\yumas\Desktop\WebApp\RedisStudy.Models\bin\Debug\RedisStudy.Models.dll.config
+C:\Users\yumas\Desktop\WebApp\RedisStudy.Models\bin\Debug\RedisStudy.Models.dll
+C:\Users\yumas\Desktop\WebApp\RedisStudy.Models\bin\Debug\RedisStudy.Models.pdb
+C:\Users\yumas\Desktop\WebApp\RedisStudy.Models\bin\Debug\EntityFramework.dll
+C:\Users\yumas\Desktop\WebApp\RedisStudy.Models\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\yumas\Desktop\WebApp\RedisStudy.Models\bin\Debug\EntityFramework.xml
+C:\Users\yumas\Desktop\WebApp\RedisStudy.Models\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\yumas\Desktop\WebApp\RedisStudy.Models\obj\Debug\RedisStudy.Models.csprojAssemblyReference.cache
+C:\Users\yumas\Desktop\WebApp\RedisStudy.Models\obj\Debug\RedisStudy.Models.csproj.CoreCompileInputs.cache
+C:\Users\yumas\Desktop\WebApp\RedisStudy.Models\obj\Debug\RedisStudy.Models.csproj.CopyComplete
+C:\Users\yumas\Desktop\WebApp\RedisStudy.Models\obj\Debug\RedisStudy.Models.dll
+C:\Users\yumas\Desktop\WebApp\RedisStudy.Models\obj\Debug\RedisStudy.Models.pdb

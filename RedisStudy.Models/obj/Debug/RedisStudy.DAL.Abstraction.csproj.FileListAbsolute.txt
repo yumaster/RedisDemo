@@ -1,0 +1,6 @@
+C:\Users\yumas\Desktop\WebApp\RedisStudy.Models\bin\Debug\RedisStudy.Models.dll
+C:\Users\yumas\Desktop\WebApp\RedisStudy.Models\bin\Debug\RedisStudy.Models.pdb
+C:\Users\yumas\Desktop\WebApp\RedisStudy.Models\obj\Debug\RedisStudy.DAL.Abstraction.csprojAssemblyReference.cache
+C:\Users\yumas\Desktop\WebApp\RedisStudy.Models\obj\Debug\RedisStudy.DAL.Abstraction.csproj.CoreCompileInputs.cache
+C:\Users\yumas\Desktop\WebApp\RedisStudy.Models\obj\Debug\RedisStudy.Models.dll
+C:\Users\yumas\Desktop\WebApp\RedisStudy.Models\obj\Debug\RedisStudy.Models.pdb
