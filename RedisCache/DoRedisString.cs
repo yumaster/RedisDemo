@@ -111,7 +111,7 @@ namespace RedisCache
         }
         #endregion
 
-        #region 赋值方法
+        #region 辅助方法
         /// <summary>
         /// 获取值的长度
         /// </summary>
