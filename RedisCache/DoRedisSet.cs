@@ -60,5 +60,21 @@ namespace RedisCache
             return Core.GetAllItemsFromSet(key);
         }
         #endregion
+        #region 删除
+        /// <summary>
+        /// 随机删除key集合中的一个值
+        /// </summary>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        public string PopItemFromSet(string key)
+        {
+            return Core.PopItemFromSet(key);
+        }
+        public void RemoveItemFromSet(string key,string value)
+        {
+            Core.RemoveItemFromSet(key, value);
+        }
+        #endregion
+
     }
 }
