@@ -268,5 +268,18 @@ namespace RedisCache
             return Core.RemoveStartFromList(key);
         }
         #endregion
+
+        #region 其他
+        /// <summary>
+        /// 从一个list的尾部移除一个数据，添加到另外一个list 的头部，并返回移动的值
+        /// </summary>
+        /// <param name="fromKey"></param>
+        /// <param name="toKey"></param>
+        /// <returns></returns>
+        public string PopAndPushItemBetweenLists(string fromKey,string toKey)
+        {
+            return Core.PopAndPushItemBetweenLists(fromKey, toKey);
+        }
+        #endregion
     }
 }
