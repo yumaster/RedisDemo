@@ -178,3 +178,5 @@ D:\vscode\RedisDemo\RedisDemo\WebApp\obj\Debug\WebApp.csproj.CoreCompileInputs.c
 D:\vscode\RedisDemo\RedisDemo\WebApp\obj\Debug\WebApp.csproj.CopyComplete
 D:\vscode\RedisDemo\RedisDemo\WebApp\obj\Debug\WebApp.dll
 D:\vscode\RedisDemo\RedisDemo\WebApp\obj\Debug\WebApp.pdb
+D:\vscode\RedisDemo\RedisDemo\WebApp\bin\RedisCommon.dll
+D:\vscode\RedisDemo\RedisDemo\WebApp\bin\RedisCommon.pdb
