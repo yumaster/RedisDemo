@@ -31,5 +31,34 @@ namespace RedisCache
             Core.AddRangeToSet(key, list);
         }
         #endregion
+        #region 获取
+        /// <summary>
+        /// 随机获取key集合中的一个值
+        /// </summary>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        public string GetRandomItemFromSet(string key)
+        {
+            return Core.GetRandomItemFromSet(key);
+        }
+        /// <summary>
+        /// 获取key集合的数量
+        /// </summary>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        public long GetCount(string key)
+        {
+            return Core.GetSetCount(key);
+        }
+        /// <summary>
+        /// 获取所有key集合的值
+        /// </summary>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        public HashSet<string>GetAllItemsFromSet(string key)
+        {
+            return Core.GetAllItemsFromSet(key);
+        }
+        #endregion
     }
 }
