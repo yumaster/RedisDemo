@@ -229,6 +229,44 @@ namespace RedisCache
         }
         #endregion
 
-
+        #region 删除
+        /// <summary>
+        /// 从尾部移除数据，返回移除的数据
+        /// </summary>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        public string PopItemFromList(string key)
+        {
+            return Core.PopItemFromList(key);
+        }
+        /// <summary>
+        /// 移除list中，key/value，与参数相同的值，并返回移除的数量
+        /// </summary>
+        /// <param name="key"></param>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public long RemoveItemFormList(string key,string value)
+        {
+            return Core.RemoveItemFromList(key, value);
+        }
+        /// <summary>
+        /// 从list的尾部移除一个数据，返回移除的数据
+        /// </summary>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        public string RemoveEndFromList(string key)
+        {
+            return Core.RemoveEndFromList(key);
+        }
+        /// <summary>
+        /// 从list的头部移除一个数据，返回移除的值
+        /// </summary>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        public string RemoveStartFromList(string key)
+        {
+            return Core.RemoveStartFromList(key);
+        }
+        #endregion
     }
 }
