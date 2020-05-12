@@ -72,6 +72,10 @@
     <Compile Include="Service\UserService.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\RedisCache\RedisCacheIgnore.csproj">
+      <Project>{D03A962C-80C8-43EA-891E-574AF7E88CA9}</Project>
+      <Name>RedisCacheIgnore</Name>
+    </ProjectReference>
     <ProjectReference Include="..\RedisStudy.Common\RedisStudy.Common.csproj">
       <Project>{1F230144-B013-4FDC-81A4-6CA26FA5B1C4}</Project>
       <Name>RedisStudy.Common</Name>

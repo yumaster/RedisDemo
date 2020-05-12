@@ -1,4 +1,5 @@
-﻿using RedisStudy.DAL.Abstraction.Models;
+﻿using RedisCache;
+using RedisStudy.DAL.Abstraction.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,11 +10,11 @@ namespace RedisStudy.Services
     public class UserCache:BaseBusinessCache<User>
     {
         private UserService demoService = new UserService();
+
         public override string CacheKey => this.GetType().Name;
         public override  List<User> GetList()
         {
             var cacheDict = CacheFactory.Cache.GetHashToListCache<User>(CacheKey);
-
             if (cacheDict == null || cacheDict.Count == 0)//如果Redis中不存在，则从数据库中读取
             {
                 var list = demoService.GetList();

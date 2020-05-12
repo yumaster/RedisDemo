@@ -56,6 +56,9 @@
       <HintPath>..\packages\EntityFramework.6.4.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="ServiceStack.Interfaces, Version=5.0.0.0, Culture=neutral, PublicKeyToken=02c12cbda47e6587, processorArchitecture=MSIL">
+      <HintPath>..\packages\ServiceStack.Interfaces.5.8.0\lib\net45\ServiceStack.Interfaces.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -194,6 +197,10 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\RedisCache\RedisCacheIgnore.csproj">
+      <Project>{d03a962c-80c8-43ea-891e-574af7e88ca9}</Project>
+      <Name>RedisCacheIgnore</Name>
+    </ProjectReference>
     <ProjectReference Include="..\RedisStudy.Common\RedisStudy.Common.csproj">
       <Project>{1F230144-B013-4FDC-81A4-6CA26FA5B1C4}</Project>
       <Name>RedisStudy.Common</Name>

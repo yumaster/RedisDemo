@@ -9,6 +9,7 @@ using System.Web.Mvc;
 using RedisStudy.DAL.Abstraction.Models;
 using RedisStudy.DAL.EF;
 using RedisStudy.Services;
+using RedisCache;
 
 namespace WebApp.Controllers
 {
@@ -18,16 +19,39 @@ namespace WebApp.Controllers
         private UserCache userCache = new UserCache();
 
 
-
         //private EFDbContext db = new EFDbContext();
 
         // GET: Users
         public ActionResult Index()
         {
             return View(userCache.GetList());
-
-            //return View(db.User.ToList());
         }
+
+
+        //public ActionResult Index()
+        //{
+        //    //var list = new List<User>();
+
+        //    //using (var tran = RedisManager.GetClient().CreateTransaction())
+        //    //{
+        //    //    try
+        //    //    {
+        //    //        tran.QueueCommand(p => {
+        //    //            list = new DoRedisHash().GetHashToListCache<User>("UserCache");
+        //    //        });
+        //    //        tran.Commit();
+        //    //    }
+        //    //    catch
+        //    //    {
+        //    //        tran.Rollback();
+        //    //    }
+        //    //}
+
+        //    var list = redisHash.GetHashToListCache<User>("UserCache");
+
+        //    return View(list);
+        //}
+
 
         // GET: Users/Details/5
         public ActionResult Details(string id)

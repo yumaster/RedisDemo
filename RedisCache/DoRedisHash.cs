@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Policy;
@@ -127,7 +128,25 @@ namespace RedisCache
         }
         #endregion
 
+        #region 扩展
+        /// <summary>
+        /// 根据key值，获取hash转换为List
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        public List<T> GetHashToListCache<T>(string key)
+        {
+            List<T> list = new List<T>();
+            var hashFields = GetHashValues(key);
+            foreach (var field in hashFields)
+            {
+                list.Add(JsonConvert.DeserializeObject<T>(field));
+            }
+            return list;
+        }
 
+        #endregion
 
         //static void Main(string[] args)
         //{
