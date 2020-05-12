@@ -75,6 +75,45 @@ namespace RedisCache
             Core.RemoveItemFromSet(key, value);
         }
         #endregion
-
+        #region 其他
+        /// <summary>
+        /// 从fromKey集合中移除值为value的值，并把value添加到toKey集合中
+        /// </summary>
+        /// <param name="fromKey"></param>
+        /// <param name="toKey"></param>
+        /// <param name="value"></param>
+        public void MoveBetweenSets(string fromKey,string toKey,string value)
+        {
+            Core.MoveBetweenSets(fromKey, toKey, value);
+        }
+        /// <summary>
+        /// 返回keys多个集合中的并集，返还hashset
+        /// </summary>
+        /// <param name="keys"></param>
+        /// <returns></returns>
+        public HashSet<string>GetUnionFromSets(string[] keys)
+        {
+            return Core.GetUnionFromSets(keys);
+        }
+        /// <summary>
+        /// keys多个集合中的并集,放入newKey集合中
+        /// </summary>
+        /// <param name="newKey"></param>
+        /// <param name="keys"></param>
+        public void StoreUnionFromSets(string newKey,string[] keys)
+        {
+            Core.StoreUnionFromSets(newKey, keys);
+        }
+        /// <summary>
+        /// 把fromKey集合中的数据与keys集合中的数据对比，fromKey集合中不存在keys集合中，则把这些不存在的数据放入newkey集合中
+        /// </summary>
+        /// <param name="newKey"></param>
+        /// <param name="fromKey"></param>
+        /// <param name="keys"></param>
+        public void StoreDifferencesFromSet(string newKey,string fromKey,string[] keys)
+        {
+            Core.StoreDifferencesFromSet(newKey, fromKey, keys);
+        }
+        #endregion
     }
 }
