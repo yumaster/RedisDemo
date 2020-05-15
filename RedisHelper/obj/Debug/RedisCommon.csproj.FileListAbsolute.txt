@@ -9,3 +9,5 @@ D:\vscode\RedisDemo\RedisDemo\RedisHelper\obj\Debug\RedisCommon.csproj.CoreCompi
 D:\vscode\RedisDemo\RedisDemo\RedisHelper\obj\Debug\RedisCommon.csproj.CopyComplete
 D:\vscode\RedisDemo\RedisDemo\RedisHelper\obj\Debug\RedisCommon.dll
 D:\vscode\RedisDemo\RedisDemo\RedisHelper\obj\Debug\RedisCommon.pdb
+D:\vscode\RedisDemo\RedisDemo\RedisHelper\bin\Debug\ServiceStack.Interfaces.dll
+D:\vscode\RedisDemo\RedisDemo\RedisHelper\bin\Debug\ServiceStack.Interfaces.xml

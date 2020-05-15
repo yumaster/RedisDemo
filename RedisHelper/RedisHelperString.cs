@@ -71,7 +71,7 @@ namespace RedisCommon
             return Do(x => x.StringGet(key));
         }
         /// <summary>
-        /// 获取多个key
+        /// 获取多个key的值
         /// </summary>
         /// <param name="listKey"></param>
         /// <returns></returns>

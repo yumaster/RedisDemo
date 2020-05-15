@@ -104,7 +104,7 @@ namespace RedisCommon
             return Do(x => x.HashDecrement(key, dataKey, val));
         }
         /// <summary>
-        /// 获取hashkey 所有redis key
+        /// 获取hashkey 所有redis value
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="key"></param>

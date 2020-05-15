@@ -1,4 +1,5 @@
-﻿using System;
+﻿using StackExchange.Redis;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 namespace RedisCommon
 {
     /// <summary>
-    /// SortedSet(有序集合) key score member score member
+    /// SortedSet(有序集合) 
     /// </summary>
     public partial class RedisHelper
     {
@@ -62,6 +63,32 @@ namespace RedisCommon
             key = AddSysCustomKey(key);
             return Do(redis => redis.SortedSetLength(key));
         }
+
+
+        /// <summary>
+        /// 获取全部根据条件
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="key"></param>
+        /// <param name="start"></param>
+        /// <param name="stop"></param>
+        /// <param name="order"></param>
+        /// <returns></returns>
+        public List<T> SortedSetRangeByRank<T>(string key,long start, long stop,Order order)
+        {
+            key = AddSysCustomKey(key);
+            return Do(redis =>
+            {
+                //var values = redis.SortedSetRangeByRank(key, start, stop, order);
+                //var valuessss = redis.SortedSetRangeByRankWithScores(key, start, stop, order);
+                //var valuessss = redis.SortedSetRangeByRank(key, 2, 3, order);
+
+                var values = redis.SortedSetRangeByRank(key, start, stop, order);
+                return ConvertList<T>(values);
+            });
+        }
+
+
         #endregion
 
         #region 异步方法

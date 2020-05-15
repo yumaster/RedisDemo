@@ -1,4 +1,5 @@
 ﻿using RedisCommon;
+using StackExchange.Redis;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -19,7 +20,8 @@ namespace WebApp.Controllers
             redis.FlushDataBase("127.0.0.1:6379");
             //RedisString(redis);
             //RedisList(redis);
-            RedisHash(redis);
+            //RedisHash(redis);
+            RedisSortedSet(redis);
             //RedisPubSub(redis);
             //RedisTransaction(redis);
 
@@ -81,19 +83,32 @@ namespace WebApp.Controllers
         static void RedisHash(RedisHelper redis)
         {
             #region Hash
-
             //var dddd = redis.HashGet<string>("UserCache", "UserCacheda20d268-08e3-4aef-a9f3-4a8a2129d3a0");
-
-
-
-
             redis.HashSet("user", "u1", "123");
             redis.HashSet("user", "u2", "1234");
             redis.HashSet("user", "u3", "1235");
             var news = redis.HashGet<string>("user", "u2");
-
             #endregion Hash
         }
+
+        static void RedisSortedSet(RedisHelper redis)
+        {
+            for(int i=0;i<10;i++)
+            {
+                Thread.Sleep(500);
+                Demo demo = new Demo
+                {
+                    Id = new Random().Next(1,1000),
+                    Name = "zhangyu" + i
+                };
+                redis.SortedSetAdd("demo", demo, demo.Id);
+            }
+
+
+            var demos = redis.SortedSetRangeByRank<Demo>("demo");
+            var demotwo = redis.SortedSetRangeByRank<Demo>("demo", 0, 20, Order.Descending);
+        }
+
 
         static void RedisPubSub(RedisHelper redis)
         {
