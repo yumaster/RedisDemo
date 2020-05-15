@@ -203,10 +203,6 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\RedisCache\RedisCacheIgnore.csproj">
-      <Project>{d03a962c-80c8-43ea-891e-574af7e88ca9}</Project>
-      <Name>RedisCacheIgnore</Name>
-    </ProjectReference>
     <ProjectReference Include="..\RedisHelper\RedisCommon.csproj">
       <Project>{CE9AE7C3-16A3-4A12-957E-E677AD449DD3}</Project>
       <Name>RedisCommon</Name>

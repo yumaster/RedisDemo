@@ -1,5 +1,4 @@
-﻿using RedisCache;
-using RedisStudy.DAL.Abstraction.Models;
+﻿using RedisStudy.DAL.Abstraction.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;

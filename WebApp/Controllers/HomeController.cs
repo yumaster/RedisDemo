@@ -9,7 +9,6 @@ using System.Web.Mvc;
 using RedisStudy.DAL.Abstraction.Models;
 using RedisStudy.DAL.EF;
 using RedisStudy.Services;
-using RedisCache;
 
 namespace WebApp.Controllers
 {

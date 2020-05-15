@@ -13,8 +13,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedisStudy.Common", "RedisS
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedisStudy.DAL.EF", "RedisStudy.DAL.EF\RedisStudy.DAL.EF.csproj", "{DBEE81B4-81D2-4033-A0FC-D33FFAD3142F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedisCacheIgnore", "RedisCache\RedisCacheIgnore.csproj", "{D03A962C-80C8-43EA-891E-574AF7E88CA9}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedisCommon", "RedisHelper\RedisCommon.csproj", "{CE9AE7C3-16A3-4A12-957E-E677AD449DD3}"
 EndProject
 Global
@@ -43,10 +41,6 @@ Global
 		{DBEE81B4-81D2-4033-A0FC-D33FFAD3142F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DBEE81B4-81D2-4033-A0FC-D33FFAD3142F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DBEE81B4-81D2-4033-A0FC-D33FFAD3142F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D03A962C-80C8-43EA-891E-574AF7E88CA9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D03A962C-80C8-43EA-891E-574AF7E88CA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D03A962C-80C8-43EA-891E-574AF7E88CA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D03A962C-80C8-43EA-891E-574AF7E88CA9}.Release|Any CPU.Build.0 = Release|Any CPU
 		{CE9AE7C3-16A3-4A12-957E-E677AD449DD3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{CE9AE7C3-16A3-4A12-957E-E677AD449DD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CE9AE7C3-16A3-4A12-957E-E677AD449DD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
