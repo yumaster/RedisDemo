@@ -28,11 +28,11 @@ namespace RedisStudy.Services
             //var user = _userRepository.GetById(id);
             //return user;
 
-            var user = redis.HashGet<User>("UserCache", "UserCahce" + id);
+            var user = redis.HashGet<User>("UserCache", "UserCache" + id);
             if (user == null)//如果Redis中不存在，则从数据库中读取
             {
                 user = _userRepository.GetById(id);
-                bool ret = redis.HashSet<User>("UserCahce", "UserCahce" + user.Id,user);
+                bool ret = redis.HashSet<User>("UserCache", "UserCache" + user.Id,user);
                 return user;
             }
             else

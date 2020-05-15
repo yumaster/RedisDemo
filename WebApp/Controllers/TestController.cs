@@ -19,11 +19,11 @@ namespace WebApp.Controllers
             redis.FlushDataBase("127.0.0.1:6379");
             //RedisString(redis);
             //RedisList(redis);
-            //RedisHash(redis);
+            RedisHash(redis);
             //RedisPubSub(redis);
             //RedisTransaction(redis);
 
-            RedisLock(redis);
+            //RedisLock(redis);
             return View();
         }
 
@@ -81,6 +81,11 @@ namespace WebApp.Controllers
         static void RedisHash(RedisHelper redis)
         {
             #region Hash
+
+            //var dddd = redis.HashGet<string>("UserCache", "UserCacheda20d268-08e3-4aef-a9f3-4a8a2129d3a0");
+
+
+
 
             redis.HashSet("user", "u1", "123");
             redis.HashSet("user", "u2", "1234");
