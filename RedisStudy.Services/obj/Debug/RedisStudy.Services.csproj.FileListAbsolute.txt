@@ -50,3 +50,5 @@ D:\vscode\RedisDemo\RedisDemo\RedisStudy.Services\obj\Debug\RedisStudy.Services.
 D:\vscode\RedisDemo\RedisDemo\RedisStudy.Services\obj\Debug\RedisStudy.Services.csproj.CopyComplete
 D:\vscode\RedisDemo\RedisDemo\RedisStudy.Services\obj\Debug\RedisStudy.Services.dll
 D:\vscode\RedisDemo\RedisDemo\RedisStudy.Services\obj\Debug\RedisStudy.Services.pdb
+D:\vscode\RedisDemo\RedisDemo\RedisStudy.Services\bin\Debug\RedisCommon.dll
+D:\vscode\RedisDemo\RedisDemo\RedisStudy.Services\bin\Debug\RedisCommon.pdb

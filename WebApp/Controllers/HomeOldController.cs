@@ -1,25 +1,56 @@
-﻿using RedisCommon;
-using RedisStudy.DAL.Abstraction.Models;
-using RedisStudy.Services;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using RedisStudy.DAL.Abstraction.Models;
+using RedisStudy.DAL.EF;
+using RedisStudy.Services;
 
 namespace WebApp.Controllers
 {
-    public class HomeController : Controller
+    public class HomeOldController : Controller
     {
         private UserService demoService = new UserService();
-        //private RedisHelper redis = new RedisHelper();
+        private UserCache userCache = new UserCache();
+
+
+        //private EFDbContext db = new EFDbContext();
 
         // GET: Users
         public ActionResult Index()
         {
-            return View(demoService.GetList());
+            return View(userCache.GetList());
         }
+
+
+        //public ActionResult Index()
+        //{
+        //    //var list = new List<User>();
+
+        //    //using (var tran = RedisManager.GetClient().CreateTransaction())
+        //    //{
+        //    //    try
+        //    //    {
+        //    //        tran.QueueCommand(p => {
+        //    //            list = new DoRedisHash().GetHashToListCache<User>("UserCache");
+        //    //        });
+        //    //        tran.Commit();
+        //    //    }
+        //    //    catch
+        //    //    {
+        //    //        tran.Rollback();
+        //    //    }
+        //    //}
+
+        //    var list = redisHash.GetHashToListCache<User>("UserCache");
+
+        //    return View(list);
+        //}
+
 
         // GET: Users/Details/5
         public ActionResult Details(string id)
@@ -28,6 +59,7 @@ namespace WebApp.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+            //User user = db.User.Find(id);
             User user = demoService.GetEntity(id);
             if (user == null)
             {
@@ -122,5 +154,14 @@ namespace WebApp.Controllers
             demoService.DeleteForm(id);
             return RedirectToAction("Index");
         }
+
+        //protected override void Dispose(bool disposing)
+        //{
+        //    if (disposing)
+        //    {
+        //        db.Dispose();
+        //    }
+        //    base.Dispose(disposing);
+        //}
     }
 }

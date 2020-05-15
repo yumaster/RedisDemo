@@ -114,7 +114,8 @@ namespace RedisCommon
             key = AddSysCustomKey(key);
             return Do(x =>
             {
-                RedisValue[] values = x.HashKeys(key);
+                //RedisValue[] values = x.HashKeys(key);
+                RedisValue[] values = x.HashValues(key);
                 return ConvertList<T>(values);
             });
         }
@@ -181,7 +182,7 @@ namespace RedisCommon
         /// <param name="key"></param>
         /// <param name="dataKey"></param>
         /// <returns></returns>
-        public async Task<T> HashGeAsync<T>(string key, string dataKey)
+        public async Task<T> HashGetAsync<T>(string key, string dataKey)
         {
             key = AddSysCustomKey(key);
             string value = await Do(db => db.HashGetAsync(key, dataKey));
@@ -223,7 +224,8 @@ namespace RedisCommon
         public async Task<List<T>> HashKeysAsync<T>(string key)
         {
             key = AddSysCustomKey(key);
-            RedisValue[] values = await Do(db => db.HashKeysAsync(key));
+            //RedisValue[] values = await Do(db => db.HashKeysAsync(key));
+            RedisValue[] values = await Do(db => db.HashValuesAsync(key));
             return ConvertList<T>(values);
         }
         #endregion
