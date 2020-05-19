@@ -33,13 +33,13 @@ namespace SqlFilterHelper
             if (funList.Count > 0)
             {
                 int i = 1;
-                foreach (var item in funList)
+                foreach (var item in funList.Where(x=>x.FunType=="前置"))
                 {
                     string retFun = SearchString(sqlStr, item.FunName, "]");//VALNULL[userid={0}]  DEPWD[{1}]
                     //执行函数
                     Type type = Type.GetType("SqlFilterHelper.SqlFilter");//通过string类型的strClass获得同名类“type”
                     object obj = System.Activator.CreateInstance(type);//创建type类的实例 "obj"
-                    MethodInfo method = type.GetMethod(retFun.Split('[')[0]);//取的方法描述
+                    MethodInfo method = type.GetMethod(item.FunName);//取的方法描述
                     object[] objs = new object[] { SearchString(retFun, "[", "]", false), paraAllList };
                     var ret = method.Invoke(obj, objs);//t类实例obj,调用方法"method(DEPWD)"
 
@@ -48,6 +48,24 @@ namespace SqlFilterHelper
                     Console.WriteLine(i + "：" + sqlStr);
                     i++;
                 }
+
+
+                foreach (var item in funList.Where(x => x.FunType == "后置"))
+                {
+                    string retFun = SearchString(sqlStr, item.FunName, "]",true);//VALNULL[userid={0}]  DEPWD[{1}]
+                    //执行函数
+                    Type type = Type.GetType("SqlFilterHelper.SqlFilter");//通过string类型的strClass获得同名类“type”
+                    object obj = System.Activator.CreateInstance(type);//创建type类的实例 "obj"
+                    MethodInfo method = type.GetMethod(item.FunName);//取的方法描述
+                    object[] objs = new object[] { SearchString(retFun, "[", "]",false), paraAllList };
+                    var ret = method.Invoke(obj, objs);//t类实例obj,调用方法"method(DEPWD)"
+
+                    sqlStr = sqlStr.Replace(retFun.ToString(), ret.ToString());
+
+                    Console.WriteLine(i + "：" + sqlStr);
+                    i++;
+                }
+
             }
         }
 
@@ -63,8 +81,6 @@ namespace SqlFilterHelper
             }
             return ret;
         }
-
-
         public static string VALNULL(string condition, List<string> paraList)
         {
             string ret = string.Empty;
@@ -82,6 +98,14 @@ namespace SqlFilterHelper
             return ret;
         }
 
+        public static string GETDATA(string condition,List<string>paraList)
+        {
+            string ret = string.Empty;
+
+            ret = "data table";
+
+            return ret;
+        }
 
 
         /// <summary>

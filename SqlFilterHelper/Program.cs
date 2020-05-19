@@ -25,9 +25,9 @@ namespace SqlFilterHelper
             SqlFilter.test(sql1, para1);
             Console.WriteLine("--------------------------------------------------------------------------------------");
             SqlFilter.test(sql2, para2);
-
-
-
+            Console.WriteLine("--------------------------------------------------------------------------------------");
+            string sql3 = "GETDATA[select * from userinfo where VALNULL[userid={0}] AND password=DEPWD[{1}]]"; //当前SQL语句，包含两个函数
+            SqlFilter.test(sql3, para2);
 
             //RedisHelper redis = new RedisHelper();
             //List<Function> funDbList = redis.HashKeys<Function>("FunCache");
