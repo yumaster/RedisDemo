@@ -4,6 +4,7 @@ D:\vscode\RedisDemo\RedisDemo\RedisHelper\bin\Debug\Newtonsoft.Json.dll
 D:\vscode\RedisDemo\RedisDemo\RedisHelper\bin\Debug\StackExchange.Redis.dll
 D:\vscode\RedisDemo\RedisDemo\RedisHelper\bin\Debug\Newtonsoft.Json.xml
 D:\vscode\RedisDemo\RedisDemo\RedisHelper\bin\Debug\StackExchange.Redis.xml
+D:\vscode\RedisDemo\RedisDemo\RedisHelper\obj\Debug\RedisCommon.csprojAssemblyReference.cache
 D:\vscode\RedisDemo\RedisDemo\RedisHelper\obj\Debug\RedisCommon.csproj.CoreCompileInputs.cache
 D:\vscode\RedisDemo\RedisDemo\RedisHelper\obj\Debug\RedisCommon.csproj.CopyComplete
 D:\vscode\RedisDemo\RedisDemo\RedisHelper\obj\Debug\RedisCommon.dll

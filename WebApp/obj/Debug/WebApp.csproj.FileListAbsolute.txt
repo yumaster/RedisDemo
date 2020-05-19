@@ -80,8 +80,6 @@ C:\Users\yumas\Desktop\WebApp\WebApp\bin\RedisStudy.Services.pdb
 C:\Users\yumas\Desktop\WebApp\WebApp\bin\RedisStudy.Services.dll.config
 C:\Users\yumas\Desktop\WebApp\WebApp\bin\Autofac.xml
 C:\Users\yumas\Desktop\WebApp\WebApp\bin\StackExchange.Redis.xml
-D:\vscode\RedisDemo\RedisDemo\WebApp\obj\Debug\WebApp.csprojAssemblyReference.cache
-D:\vscode\RedisDemo\RedisDemo\WebApp\obj\Debug\WebApp.csproj.CoreCompileInputs.cache
 D:\vscode\RedisDemo\RedisDemo\WebApp\bin\WebApp.dll.config
 D:\vscode\RedisDemo\RedisDemo\WebApp\bin\WebApp.dll
 D:\vscode\RedisDemo\RedisDemo\WebApp\bin\WebApp.pdb
@@ -162,6 +160,8 @@ D:\vscode\RedisDemo\RedisDemo\WebApp\bin\zh-Hans\System.Web.Razor.resources.dll
 D:\vscode\RedisDemo\RedisDemo\WebApp\bin\zh-Hans\System.Web.WebPages.resources.dll
 D:\vscode\RedisDemo\RedisDemo\WebApp\bin\zh-Hans\System.Web.WebPages.Deployment.resources.dll
 D:\vscode\RedisDemo\RedisDemo\WebApp\bin\zh-Hans\System.Web.WebPages.Razor.resources.dll
+D:\vscode\RedisDemo\RedisDemo\WebApp\obj\Debug\WebApp.csprojAssemblyReference.cache
+D:\vscode\RedisDemo\RedisDemo\WebApp\obj\Debug\WebApp.csproj.CoreCompileInputs.cache
 D:\vscode\RedisDemo\RedisDemo\WebApp\obj\Debug\WebApp.csproj.CopyComplete
 D:\vscode\RedisDemo\RedisDemo\WebApp\obj\Debug\WebApp.dll
 D:\vscode\RedisDemo\RedisDemo\WebApp\obj\Debug\WebApp.pdb

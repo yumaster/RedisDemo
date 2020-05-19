@@ -1,5 +1,4 @@
-﻿using RedisCommon;
-using RedisStudy.DAL.Abstraction.Models;
+﻿using RedisStudy.DAL.Abstraction.Models;
 using RedisStudy.Services;
 using System;
 using System.Collections.Generic;

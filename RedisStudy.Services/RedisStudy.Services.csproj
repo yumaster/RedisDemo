@@ -69,6 +69,7 @@
     <Compile Include="Entity\TData.cs" />
     <Compile Include="Log\LogHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\FunService.cs" />
     <Compile Include="Service\UserService.cs" />
   </ItemGroup>
   <ItemGroup>

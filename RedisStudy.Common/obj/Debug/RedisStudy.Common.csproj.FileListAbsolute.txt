@@ -15,3 +15,4 @@ D:\vscode\RedisDemo\RedisDemo\RedisStudy.Common\obj\Debug\RedisStudy.Common.cspr
 D:\vscode\RedisDemo\RedisDemo\RedisStudy.Common\obj\Debug\RedisStudy.Common.csproj.CopyComplete
 D:\vscode\RedisDemo\RedisDemo\RedisStudy.Common\obj\Debug\RedisStudy.Common.dll
 D:\vscode\RedisDemo\RedisDemo\RedisStudy.Common\obj\Debug\RedisStudy.Common.pdb
+D:\vscode\RedisDemo\RedisDemo\RedisStudy.Common\obj\Debug\RedisStudy.Common.csprojAssemblyReference.cache

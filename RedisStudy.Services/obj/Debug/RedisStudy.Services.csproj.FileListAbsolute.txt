@@ -24,8 +24,6 @@ C:\Users\yumas\Desktop\WebApp\RedisStudy.Services\bin\Debug\StackExchange.Redis.
 C:\Users\yumas\Desktop\WebApp\RedisStudy.Services\obj\Debug\RedisStudy.Services.csproj.CopyComplete
 C:\Users\yumas\Desktop\WebApp\RedisStudy.Services\obj\Debug\RedisStudy.Services.dll
 C:\Users\yumas\Desktop\WebApp\RedisStudy.Services\obj\Debug\RedisStudy.Services.pdb
-D:\vscode\RedisDemo\RedisDemo\RedisStudy.Services\obj\Debug\RedisStudy.Services.csprojAssemblyReference.cache
-D:\vscode\RedisDemo\RedisDemo\RedisStudy.Services\obj\Debug\RedisStudy.Services.csproj.CoreCompileInputs.cache
 D:\vscode\RedisDemo\RedisDemo\RedisStudy.Services\bin\Debug\RedisStudy.Services.dll.config
 D:\vscode\RedisDemo\RedisDemo\RedisStudy.Services\bin\Debug\RedisStudy.Services.dll
 D:\vscode\RedisDemo\RedisDemo\RedisStudy.Services\bin\Debug\RedisStudy.Services.pdb
@@ -48,6 +46,8 @@ D:\vscode\RedisDemo\RedisDemo\RedisStudy.Services\bin\Debug\EntityFramework.xml
 D:\vscode\RedisDemo\RedisDemo\RedisStudy.Services\bin\Debug\EntityFramework.SqlServer.xml
 D:\vscode\RedisDemo\RedisDemo\RedisStudy.Services\bin\Debug\Newtonsoft.Json.xml
 D:\vscode\RedisDemo\RedisDemo\RedisStudy.Services\bin\Debug\StackExchange.Redis.xml
+D:\vscode\RedisDemo\RedisDemo\RedisStudy.Services\obj\Debug\RedisStudy.Services.csprojAssemblyReference.cache
+D:\vscode\RedisDemo\RedisDemo\RedisStudy.Services\obj\Debug\RedisStudy.Services.csproj.CoreCompileInputs.cache
 D:\vscode\RedisDemo\RedisDemo\RedisStudy.Services\obj\Debug\RedisStudy.Services.csproj.CopyComplete
 D:\vscode\RedisDemo\RedisDemo\RedisStudy.Services\obj\Debug\RedisStudy.Services.dll
 D:\vscode\RedisDemo\RedisDemo\RedisStudy.Services\obj\Debug\RedisStudy.Services.pdb

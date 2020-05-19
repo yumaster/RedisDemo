@@ -137,6 +137,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\FunctionsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\HomeOldController.cs" />
     <Compile Include="Controllers\TestController.cs" />
@@ -183,6 +184,11 @@
     <Content Include="Views\Home\Details.cshtml" />
     <Content Include="Views\Home\Edit.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Functions\Create.cshtml" />
+    <Content Include="Views\Functions\Delete.cshtml" />
+    <Content Include="Views\Functions\Details.cshtml" />
+    <Content Include="Views\Functions\Edit.cshtml" />
+    <Content Include="Views\Functions\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -216,7 +222,7 @@
       <Name>RedisStudy.DAL.EF</Name>
     </ProjectReference>
     <ProjectReference Include="..\RedisStudy.Models\RedisStudy.DAL.Abstraction.csproj">
-      <Project>{A94DB6C9-F989-4A6E-AD90-BF812A5EED69}</Project>
+      <Project>{a94db6c9-f989-4a6e-ad90-bf812a5eed69}</Project>
       <Name>RedisStudy.DAL.Abstraction</Name>
     </ProjectReference>
     <ProjectReference Include="..\RedisStudy.Services\RedisStudy.Services.csproj">

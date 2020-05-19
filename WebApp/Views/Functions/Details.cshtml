@@ -1,0 +1,42 @@
+﻿@model RedisStudy.DAL.Abstraction.Models.Function
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Function</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FunName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FunName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FunType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FunType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsUsed)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsUsed)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedisStudy.DAL.EF", "RedisS
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedisCommon", "RedisHelper\RedisCommon.csproj", "{CE9AE7C3-16A3-4A12-957E-E677AD449DD3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SqlFilterHelper", "SqlFilterHelper\SqlFilterHelper.csproj", "{35D772AC-08FE-4A69-873E-A520CAC381AF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{CE9AE7C3-16A3-4A12-957E-E677AD449DD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CE9AE7C3-16A3-4A12-957E-E677AD449DD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CE9AE7C3-16A3-4A12-957E-E677AD449DD3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{35D772AC-08FE-4A69-873E-A520CAC381AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35D772AC-08FE-4A69-873E-A520CAC381AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35D772AC-08FE-4A69-873E-A520CAC381AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35D772AC-08FE-4A69-873E-A520CAC381AF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
