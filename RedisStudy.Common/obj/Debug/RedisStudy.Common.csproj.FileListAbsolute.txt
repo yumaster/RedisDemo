@@ -7,3 +7,11 @@ C:\Users\yumas\Desktop\WebApp\RedisStudy.Common\obj\Debug\RedisStudy.Common.cspr
 C:\Users\yumas\Desktop\WebApp\RedisStudy.Common\obj\Debug\RedisStudy.Common.csproj.CopyComplete
 C:\Users\yumas\Desktop\WebApp\RedisStudy.Common\obj\Debug\RedisStudy.Common.dll
 C:\Users\yumas\Desktop\WebApp\RedisStudy.Common\obj\Debug\RedisStudy.Common.pdb
+D:\vscode\RedisDemo\RedisDemo\RedisStudy.Common\bin\Debug\RedisStudy.Common.dll
+D:\vscode\RedisDemo\RedisDemo\RedisStudy.Common\bin\Debug\RedisStudy.Common.pdb
+D:\vscode\RedisDemo\RedisDemo\RedisStudy.Common\bin\Debug\Autofac.dll
+D:\vscode\RedisDemo\RedisDemo\RedisStudy.Common\bin\Debug\Autofac.xml
+D:\vscode\RedisDemo\RedisDemo\RedisStudy.Common\obj\Debug\RedisStudy.Common.csproj.CoreCompileInputs.cache
+D:\vscode\RedisDemo\RedisDemo\RedisStudy.Common\obj\Debug\RedisStudy.Common.csproj.CopyComplete
+D:\vscode\RedisDemo\RedisDemo\RedisStudy.Common\obj\Debug\RedisStudy.Common.dll
+D:\vscode\RedisDemo\RedisDemo\RedisStudy.Common\obj\Debug\RedisStudy.Common.pdb

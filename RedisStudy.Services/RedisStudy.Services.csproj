@@ -72,6 +72,10 @@
     <Compile Include="Service\UserService.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\RedisHelper\RedisCommon.csproj">
       <Project>{CE9AE7C3-16A3-4A12-957E-E677AD449DD3}</Project>
       <Name>RedisCommon</Name>
@@ -88,10 +92,6 @@
       <Project>{A94DB6C9-F989-4A6E-AD90-BF812A5EED69}</Project>
       <Name>RedisStudy.DAL.Abstraction</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

@@ -1,10 +1,12 @@
 ﻿using RedisCommon;
+using RedisStudy.DAL.Abstraction.Models;
 using StackExchange.Redis;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 
@@ -17,15 +19,18 @@ namespace WebApp.Controllers
         {
             RedisHelper redis = new RedisHelper();
 
-            redis.FlushDataBase("127.0.0.1:6379");
+            //redis.FlushDataBase("127.0.0.1:6379");
             //RedisString(redis);
             //RedisList(redis);
             //RedisHash(redis);
-            RedisSortedSet(redis);
+            //RedisSortedSet(redis);
             //RedisPubSub(redis);
             //RedisTransaction(redis);
 
             //RedisLock(redis);
+
+
+            RedisTest(redis);
             return View();
         }
 
@@ -173,6 +178,62 @@ namespace WebApp.Controllers
 
             #endregion Lock
         }
+
+
+
+        static void RedisTest(RedisHelper redis)
+        {
+            Debug.WriteLine(redis.StringGet("zhangyu"));
+            Stopwatch sw = new Stopwatch();
+            sw.Start();
+
+            List<int> ids = new List<int>();
+            for(int i=0;i<100000;i++)
+            {
+                ids.Add(i);
+            }
+            int maxDegreeOfParallelism =10000;//最大并行数量
+            #region 方法一
+            //List<Task> tasks = new List<Task>();
+            //TaskFactory taskFactory = new TaskFactory();
+            //ids.ForEach(id =>
+            //{
+            //    tasks.Add(taskFactory.StartNew(() =>
+            //    {
+            //        #region 业务代码
+            //        //var cacheDict = redis.HashKeys<User>("UserCache");
+            //        string ret = redis.StringGet("zhangyu");
+            //        #endregion
+            //    }));
+            //    //核心，保持当前线程总量为maxDegreeOfParallelism
+            //    if (tasks.Count >= maxDegreeOfParallelism)
+            //    {
+            //        Task.WaitAny(tasks.ToArray());
+            //        tasks = tasks.Where(x => x.Status == TaskStatus.Running).ToList();
+            //    }
+            //});
+            #endregion
+
+
+            #region 方法二
+            ParallelOptions parallelOptions = new ParallelOptions();
+            parallelOptions.MaxDegreeOfParallelism = maxDegreeOfParallelism;//设置最大并行数量为maxDegreeOfParallelism
+            Parallel.ForEach(ids, parallelOptions, id =>
+            {
+                #region 业务代码
+                //var cacheDict = redis.HashKeys<User>("UserCache");
+                //string ret = redis.StringGet("zhangyu");
+                string ret = redis.StringGet("zhangyu");
+                #endregion
+            });
+            Debug.WriteLine("方法调用成功");
+            sw.Stop();
+            TimeSpan ts2 = sw.Elapsed;
+            Debug.WriteLine("Stopwatch总共花费{0}毫秒.", ts2.TotalMilliseconds);
+            Debug.WriteLine("Stopwatch总共花费{0}秒.", ts2.TotalSeconds);
+            #endregion
+        }
+
     }
     public class Demo
     {

@@ -8,8 +8,8 @@
     <ProjectGuid>{A94DB6C9-F989-4A6E-AD90-BF812A5EED69}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>RedisStudy.Models</RootNamespace>
-    <AssemblyName>RedisStudy.Models</AssemblyName>
+    <RootNamespace>RedisStudy.DAL.Abstraction</RootNamespace>
+    <AssemblyName>RedisStudy.DAL.Abstraction</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -48,6 +48,7 @@
     <Compile Include="IDbContext.cs" />
     <Compile Include="IRepository.cs" />
     <Compile Include="Models\Article.cs" />
+    <Compile Include="Models\Function.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

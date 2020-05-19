@@ -12,7 +12,8 @@ namespace RedisStudy.DAL.EF
         /// </summary>
         public EFDbContext() : base("connStr")
         {
-
+            //关闭初始化器
+            Database.SetInitializer<EFDbContext>(null);
         }
 
         /// <summary>
@@ -29,6 +30,7 @@ namespace RedisStudy.DAL.EF
         public DbSet<User> User { get; set; }
 
         public DbSet<Article> Article { get; set; }
+        public DbSet<Function> Function { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

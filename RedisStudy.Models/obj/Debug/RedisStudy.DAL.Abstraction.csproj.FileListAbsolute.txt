@@ -4,3 +4,8 @@ C:\Users\yumas\Desktop\WebApp\RedisStudy.Models\obj\Debug\RedisStudy.DAL.Abstrac
 C:\Users\yumas\Desktop\WebApp\RedisStudy.Models\obj\Debug\RedisStudy.DAL.Abstraction.csproj.CoreCompileInputs.cache
 C:\Users\yumas\Desktop\WebApp\RedisStudy.Models\obj\Debug\RedisStudy.Models.dll
 C:\Users\yumas\Desktop\WebApp\RedisStudy.Models\obj\Debug\RedisStudy.Models.pdb
+D:\vscode\RedisDemo\RedisDemo\RedisStudy.Models\bin\Debug\RedisStudy.DAL.Abstraction.dll
+D:\vscode\RedisDemo\RedisDemo\RedisStudy.Models\bin\Debug\RedisStudy.DAL.Abstraction.pdb
+D:\vscode\RedisDemo\RedisDemo\RedisStudy.Models\obj\Debug\RedisStudy.DAL.Abstraction.csproj.CoreCompileInputs.cache
+D:\vscode\RedisDemo\RedisDemo\RedisStudy.Models\obj\Debug\RedisStudy.DAL.Abstraction.dll
+D:\vscode\RedisDemo\RedisDemo\RedisStudy.Models\obj\Debug\RedisStudy.DAL.Abstraction.pdb
