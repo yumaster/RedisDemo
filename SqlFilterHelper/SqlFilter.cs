@@ -12,12 +12,61 @@ namespace SqlFilterHelper
 {
     public class SqlFilter
     {
-        public static void test(string sqlStr, List<string> paraTest)
+        public static void TestTwo(string sqlStr, List<string> paraTest)
         {
             RedisHelper redis = new RedisHelper();
             List<Function> funAllList = redis.HashKeys<Function>("FunCache");//所有函数列表
 
-            List<string> paraAllList = paraTest;
+            if (HasFunction(sqlStr, funAllList))
+            {
+                #region 先处理前置条件
+                sqlStr = DoBefore(sqlStr, paraTest, funAllList.Where(x=>x.FunType=="前置").ToList());
+                #endregion
+
+                #region 再处理后置条件
+                sqlStr = DoAfter(sqlStr, paraTest, funAllList.Where(x => x.FunType == "后置").ToList());
+                #endregion
+                Console.WriteLine("最终结果：" + sqlStr);
+            }
+            else
+            {
+                Console.WriteLine("最终结果：" + sqlStr);
+            }
+        }
+
+        #region 核心方法
+        /// <summary>
+        /// 判断SQL中，是否还有未处理的函数
+        /// </summary>
+        /// <param name="sqlStr"></param>
+        /// <param name="funAllList"></param>
+        /// <returns></returns>
+        public static bool HasFunction(string sqlStr, List<Function> funAllList)
+        {
+            bool ret = false;
+            foreach (var item in funAllList)
+            {
+                if (sqlStr.Contains(item.FunName))
+                {
+                    ret = true;
+                }
+                else
+                {
+                    continue;
+                }
+            }
+            return ret;
+        }
+
+        /// <summary>
+        /// 递归，处理SQL
+        /// </summary>
+        /// <param name="sqlStr"></param>
+        /// <param name="paraAllList"></param>
+        /// <param name="funAllList"></param>
+        /// <returns></returns>
+        public static string DoBefore(string sqlStr, List<string> paraAllList, List<Function> funAllList)
+        {
             List<Function> funList = new List<Function>();//筛选到的SQL语句包含的函数
             foreach (var item in funAllList)
             {
@@ -32,8 +81,7 @@ namespace SqlFilterHelper
             }
             if (funList.Count > 0)
             {
-                int i = 1;
-                foreach (var item in funList.Where(x=>x.FunType=="前置"))
+                foreach (var item in funList)
                 {
                     string retFun = SearchString(sqlStr, item.FunName, "]");//VALNULL[userid={0}]  DEPWD[{1}]
                     //执行函数
@@ -42,33 +90,80 @@ namespace SqlFilterHelper
                     MethodInfo method = type.GetMethod(item.FunName);//取的方法描述
                     object[] objs = new object[] { SearchString(retFun, "[", "]", false), paraAllList };
                     var ret = method.Invoke(obj, objs);//t类实例obj,调用方法"method(DEPWD)"
-
                     sqlStr = sqlStr.Replace(retFun.ToString(), ret.ToString());
-
-                    Console.WriteLine(i + "：" + sqlStr);
-                    i++;
                 }
+            }
+            if (HasFunction(sqlStr, funAllList))
+            {
+                return DoBefore(sqlStr, paraAllList, funAllList);
+            }
+            return sqlStr;
+        }
 
 
-                foreach (var item in funList.Where(x => x.FunType == "后置"))
+        public static string DoAfter(string sqlStr, List<string> paraAllList, List<Function> funAllList)
+        {
+            List<Function> funList = new List<Function>();//筛选到的SQL语句包含的函数
+            foreach (var item in funAllList)
+            {
+                if (sqlStr.Contains(item.FunName))
                 {
-                    string retFun = SearchString(sqlStr, item.FunName, "]",true);//VALNULL[userid={0}]  DEPWD[{1}]
+                    funList.Add(item);
+                }
+                else
+                {
+                    continue;
+                }
+            }
+            if (funList.Count > 0)
+            {
+                foreach (var item in funList)
+                {
+                    string retFun = SearchString(sqlStr, item.FunName, "]");//VALNULL[userid={0}]  DEPWD[{1}]
                     //执行函数
                     Type type = Type.GetType("SqlFilterHelper.SqlFilter");//通过string类型的strClass获得同名类“type”
                     object obj = System.Activator.CreateInstance(type);//创建type类的实例 "obj"
                     MethodInfo method = type.GetMethod(item.FunName);//取的方法描述
-                    object[] objs = new object[] { SearchString(retFun, "[", "]",false), paraAllList };
+                    object[] objs = new object[] { SearchString(retFun, "[", "]", false), paraAllList };
                     var ret = method.Invoke(obj, objs);//t类实例obj,调用方法"method(DEPWD)"
-
                     sqlStr = sqlStr.Replace(retFun.ToString(), ret.ToString());
-
-                    Console.WriteLine(i + "：" + sqlStr);
-                    i++;
                 }
-
             }
-        }
 
+            if (HasFunction(sqlStr, funAllList))
+            {
+                return DoAfter(sqlStr, paraAllList, funAllList);
+            }
+            return sqlStr;
+        }
+        #endregion
+
+
+        #region 函数库
+        /// <summary>
+        /// 加密算法
+        /// </summary>
+        /// <param name="condition"></param>
+        /// <param name="paraList"></param>
+        /// <returns></returns>
+        public static string ENPWD(string condition,List<string>paraList)
+        {
+            string ret = string.Empty;
+            int paraIndex = int.Parse(SearchString(condition, "{", "}", false));
+            string paraStr = paraList[paraIndex];
+            if (!string.IsNullOrEmpty(paraStr))
+            {
+                string pwd = DESEncrypt.Encrypt(paraStr);//加密业务逻辑
+                ret = condition.Replace("{" + paraIndex + "}", "'" + pwd + "'");
+            }
+            return ret;
+        }
+        /// <summary>
+        /// 解密算法
+        /// </summary>
+        /// <param name="condition"></param>
+        /// <param name="paraList"></param>
+        /// <returns></returns>
         public static string DEPWD(string condition, List<string> paraList)// user={0}   {1}
         {
             string ret = string.Empty;
@@ -76,7 +171,7 @@ namespace SqlFilterHelper
             string paraStr = paraList[paraIndex];
             if (!string.IsNullOrEmpty(paraStr))
             {
-                string pwd = "pwd";//加密业务逻辑
+                string pwd = DESEncrypt.Decrypt(paraStr);//加密业务逻辑
                 ret = condition.Replace("{" + paraIndex + "}", "'" + pwd + "'");
             }
             return ret;
@@ -88,7 +183,7 @@ namespace SqlFilterHelper
             string paraStr = paraList[paraIndex];
             if (!string.IsNullOrEmpty(paraStr))
             {
-                string pwd = "userid";//加密业务逻辑
+                string pwd = paraStr;//加密业务逻辑
                 ret = condition.Replace("{" + paraIndex + "}", "'" + pwd + "'");
             }
             else
@@ -97,17 +192,18 @@ namespace SqlFilterHelper
             }
             return ret;
         }
-
-        public static string GETDATA(string condition,List<string>paraList)
+        public static string GETDATA(string condition, List<string> paraList)
         {
             string ret = string.Empty;
 
-            ret = "data table";
+            ret = condition;
 
             return ret;
         }
+        #endregion
 
 
+        #region 扩展方法，截取字符串
         /// <summary>
         /// 获取搜索到的数目（包含起止位）
         /// </summary>
@@ -131,5 +227,6 @@ namespace SqlFilterHelper
             }
             return s.Substring(n1, n2 - n1);   //取搜索的条数，用结束的位置-开始的位置,并返回
         }
+        #endregion
     }
 }

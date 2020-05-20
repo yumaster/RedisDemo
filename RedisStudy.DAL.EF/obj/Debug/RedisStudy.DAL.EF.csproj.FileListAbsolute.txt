@@ -29,3 +29,4 @@ D:\vscode\RedisDemo\RedisDemo\RedisStudy.DAL.EF\obj\Debug\RedisStudy.DAL.EF.cspr
 D:\vscode\RedisDemo\RedisDemo\RedisStudy.DAL.EF\obj\Debug\RedisStudy.DAL.EF.csproj.CopyComplete
 D:\vscode\RedisDemo\RedisDemo\RedisStudy.DAL.EF\obj\Debug\RedisStudy.DAL.EF.dll
 D:\vscode\RedisDemo\RedisDemo\RedisStudy.DAL.EF\obj\Debug\RedisStudy.DAL.EF.pdb
+D:\vscode\RedisDemo\RedisDemo\RedisStudy.DAL.EF\obj\Debug\RedisStudy.DAL.EF.Migrations.addField.resources

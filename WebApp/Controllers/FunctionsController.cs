@@ -43,7 +43,7 @@ namespace WebApp.Controllers
         // 详细信息，请参阅 https://go.microsoft.com/fwlink/?LinkId=317598。
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,FunName,FunType,IsUsed")] Function fun)
+        public ActionResult Create([Bind(Include = "Id,FunName,FunType,FunRemark,IsUsed")] Function fun)
         {
             if (ModelState.IsValid)
             {
@@ -71,7 +71,7 @@ namespace WebApp.Controllers
         // 详细信息，请参阅 https://go.microsoft.com/fwlink/?LinkId=317598。
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,FunName,FunType,IsUsed")] Function fun)
+        public ActionResult Edit([Bind(Include = "Id,FunName,FunType,FunRemark,IsUsed")] Function fun)
         {
             if (ModelState.IsValid)
             {
