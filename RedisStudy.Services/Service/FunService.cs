@@ -67,7 +67,6 @@ namespace RedisStudy.Services.Service
                 _funRepository.Add(entity);
                 int ret = _funRepository.Context.Commit();//首先变更数据库  增加一条记录
                 bool bret = redis.HashSet("FunCache", "FunCache" + entity.Id, entity);
-
             }
             else
             {

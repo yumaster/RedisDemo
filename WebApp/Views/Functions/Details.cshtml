@@ -1,13 +1,13 @@
 ﻿@model RedisStudy.DAL.Abstraction.Models.Function
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "详细";
 }
 
-<h2>Details</h2>
+<h2>详细</h2>
 
 <div>
-    <h4>Function</h4>
+    <h4>函数管理</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -45,6 +45,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("编辑", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("返回列表", "Index")
 </p>
