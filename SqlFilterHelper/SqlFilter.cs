@@ -14,50 +14,32 @@ namespace SqlFilterHelper
 {
     public class SqlFilter:FunExtension
     {
-        public static void TestTwo(string sqlStr, List<string> paraList, List<Function> funAllList)
+        public static Task<string> TestTwo(string sqlStr, List<string> paraList, List<Function> funAllList)
         {
-            if (HasFunction(sqlStr, funAllList))
+            var task = Task.Run(() =>
             {
-                #region 先处理前置条件
-                sqlStr = DoBefore(sqlStr, paraList, funAllList.Where(x=>x.FunType=="前置").ToList());
-                #endregion
-                
-                #region 再处理后置条件
-                //sqlStr = DoAfter(sqlStr, paraList, funAllList.Where(x => x.FunType == "后置").ToList());
-                #endregion
-                Console.WriteLine("最终结果：" + sqlStr);
-            }
-            else
-            {
-                Console.WriteLine("最终结果：" + sqlStr);
-            }
-        }
-
-        #region 核心方法
-        /// <summary>
-        /// 判断SQL中，是否还有未处理的函数
-        /// </summary>
-        /// <param name="sqlStr">sql字符串</param>
-        /// <param name="funAllList">所有的函数列表</param>
-        /// <returns></returns>
-        public static bool HasFunction(string sqlStr, List<Function> funAllList)
-        {
-            bool ret = false;
-            foreach (var item in funAllList)
-            {
-                if (sqlStr.Contains(item.FunName))//如果字符串中包含函数名，则返回true，进行第二次sql处理，直到sql中不包含函数
+                if (HasFunction(sqlStr, funAllList))
                 {
-                    ret = true;
-                    break;
+                    #region 先处理前置条件
+                    sqlStr = DoBefore(sqlStr, paraList, funAllList.Where(x => x.FunType == "前置").ToList());
+                    
+                    #endregion
+
+                    #region 再处理后置条件
+                    //sqlStr = DoAfter(sqlStr, paraList, funAllList.Where(x => x.FunType == "后置").ToList());
+                    #endregion
+                    //Console.WriteLine("最终结果：" + sqlStr);
                 }
                 else
                 {
-                    continue;
+                    //Console.WriteLine("最终结果：" + sqlStr);
                 }
-            }
-            return ret;
+                return sqlStr;
+            });
+            return task;
         }
 
+        #region 核心方法
         /// <summary>
         /// 递归，处理前置函数  参数
         /// </summary>
@@ -173,10 +155,33 @@ namespace SqlFilterHelper
             
             return sqlStr;
         }
+
+
+
+        /// <summary>
+        /// 判断SQL中，是否还有未处理的函数
+        /// </summary>
+        /// <param name="sqlStr">sql字符串</param>
+        /// <param name="funAllList">所有的函数列表</param>
+        /// <returns></returns>
+        public static bool HasFunction(string sqlStr, List<Function> funAllList)
+        {
+            bool ret = false;
+            foreach (var item in funAllList)
+            {
+                if (sqlStr.Contains(item.FunName))//如果字符串中包含函数名，则返回true，进行第二次sql处理，直到sql中不包含函数
+                {
+                    ret = true;
+                    break;
+                }
+                else
+                {
+                    continue;
+                }
+            }
+            return ret;
+        }
         #endregion
-
-       
-
 
         #region 扩展方法
         /// <summary>

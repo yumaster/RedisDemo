@@ -15,6 +15,7 @@ namespace SqlFilterHelper.FunctionLibrary
         /// <param name="condition"></param>
         /// <param name="paraList"></param>
         /// <returns></returns>
+        [CustomFun(FunName = "ENPWD", FunRemark = "md5加密函数", FunType = "前置")]
         public static string ENPWD(string condition, List<string> paraList)
         {
             string ret = string.Empty;
@@ -44,6 +45,7 @@ namespace SqlFilterHelper.FunctionLibrary
         /// <param name="condition"></param>
         /// <param name="paraList"></param>
         /// <returns></returns>
+        [CustomFun(FunName = "DEPWD", FunRemark = "md5解密函数", FunType = "前置")]
         public static string DEPWD(string condition, List<string> paraList)// user={0}   {1}
         {
             string ret = string.Empty;
@@ -70,7 +72,7 @@ namespace SqlFilterHelper.FunctionLibrary
             }
             return ret;
         }
-        
+
 
 
 
@@ -80,6 +82,7 @@ namespace SqlFilterHelper.FunctionLibrary
         /// <param name="condition"></param>
         /// <param name="paraList"></param>
         /// <returns></returns>
+        [CustomFun(FunName = "BASE64", FunRemark = "BASE64函数", FunType = "前置")]
         public static string BASE64(string condition, List<string> paraList)
         {
             string ret = string.Empty;
