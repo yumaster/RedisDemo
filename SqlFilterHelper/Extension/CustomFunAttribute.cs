@@ -8,15 +8,15 @@ using System.ComponentModel.DataAnnotations;
 [AttributeUsage(AttributeTargets.Method, AllowMultiple = false, Inherited = false)]
 public class CustomFunAttribute:Attribute
 {
-    [StringLength(50)]
     [Display(Name = "名称")]
     public string FunName { get; set; }
 
-    [StringLength(50)]
     [Display(Name = "类型")]
     public string FunType { get; set; }
 
-    [StringLength(200)]
     [Display(Name = "说明")]
     public string FunRemark { get; set; }
+
+    [Display(Name = "说明")]
+    public string ParaList { get; set; }
 }

@@ -1,5 +1,7 @@
-﻿using RedisCommon;
+﻿using Newtonsoft.Json;
+using RedisCommon;
 using RedisStudy.DAL.Abstraction.Models;
+using SqlFilterHelper.FunctionLibrary;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,7 +16,39 @@ namespace SqlFilterHelper
 {
     public class SqlFilter:FunExtension
     {
-        public static Task<string> TestTwo(string sqlStr, List<string> paraList, List<Function> funAllList)
+        /// <summary>
+        /// 获取函数列表
+        /// </summary>
+        /// <returns></returns>
+        public static List<Function> GetFunctionList()
+        {
+            //SqlFilterHelper.FunctionLibrary.FunctionExe
+            //反射自己这个类
+            List<Function> funAllList = new List<Function>();
+            Type t = Type.GetType("SqlFilterHelper.FunctionLibrary.FunctionExe");
+            //拿去本类的方法
+            MethodInfo[] methodList = t.GetMethods(BindingFlags.Public | BindingFlags.Static);
+            foreach (var item in methodList)
+            {
+                object[] _attrs = item.GetCustomAttributes(typeof(CustomFunAttribute), false);  //反射获得用户自定义属性
+                if (_attrs.Length != 0)
+                {
+                    string ret = JsonConvert.SerializeObject(_attrs[0]);
+                    Function fun = JsonConvert.DeserializeObject<Function>(ret);
+                    funAllList.Add(fun);
+                }
+            }
+            return funAllList;
+        }
+
+        /// <summary>
+        /// 获取过滤后的sql
+        /// </summary>
+        /// <param name="sqlStr"></param>
+        /// <param name="paraList"></param>
+        /// <param name="funAllList"></param>
+        /// <returns></returns>
+        public static Task<string> GetFilterSql(string sqlStr, List<string> paraList, List<Function> funAllList)
         {
             var task = Task.Run(() =>
             {
@@ -33,7 +67,9 @@ namespace SqlFilterHelper
                 else
                 {
                     //Console.WriteLine("最终结果：" + sqlStr);
+                    sqlStr = FunctionExe.ReplacePara(sqlStr,paraList);
                 }
+                sqlStr = FunctionExe.ReplacePara(sqlStr, paraList);
                 return sqlStr;
             });
             return task;

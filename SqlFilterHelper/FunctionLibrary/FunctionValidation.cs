@@ -14,7 +14,7 @@ namespace SqlFilterHelper.FunctionLibrary
         /// <param name="condition"></param>
         /// <param name="paraList"></param>
         /// <returns></returns>
-        [CustomFun(FunName = "VALNULL", FunRemark = "验证是否为空",FunType ="前置")]
+        [CustomFun(FunName = "VALNULL", FunRemark = "验证是否为空",FunType ="前置",ParaList = "string condition, List<string> paraList")]
         public static string VALNULL(string condition, List<string> paraList)
         {
             string ret = string.Empty;
@@ -37,6 +37,25 @@ namespace SqlFilterHelper.FunctionLibrary
                 ret = condition;
             }
             return ret;
+        }
+        /// <summary>
+        /// 替换参数
+        /// </summary>
+        /// <param name="condition"></param>
+        /// <param name="paraList"></param>
+        /// <returns></returns>
+        public static string ReplacePara(string condition,List<string>paraList)
+        {
+            //计算需要传递参数的个数
+            for (int i = 0; i < paraList.Count(); i++)
+            {
+                if (paraList.Count <= i)
+                {
+                    break;
+                }
+                condition = condition.Replace("{" + i + "}", "'" + paraList[i] + "'");
+            }
+            return condition;
         }
 
     }

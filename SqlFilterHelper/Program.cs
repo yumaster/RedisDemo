@@ -20,22 +20,7 @@ namespace SqlFilterHelper
 
             Stopwatch sw = new Stopwatch();
             sw.Start();
-            //SqlFilterHelper.FunctionLibrary.FunctionExe
-            //反射自己这个类
-            List<Function> funAllList = new List<Function>();
-            Type t = Type.GetType("SqlFilterHelper.FunctionLibrary.FunctionExe");
-            //拿去本类的方法
-            MethodInfo[] methodList = t.GetMethods(BindingFlags.Public | BindingFlags.Static);
-            foreach (var item in methodList)
-            {
-                object[] _attrs = item.GetCustomAttributes(typeof(CustomFunAttribute), false);  //反射获得用户自定义属性
-                if (_attrs.Length != 0)
-                {
-                    string ret = JsonConvert.SerializeObject(_attrs[0]);
-                    Function fun = JsonConvert.DeserializeObject<Function>(ret);
-                    funAllList.Add(fun);
-                }
-            }
+            List<Function> funAllList = SqlFilter.GetFunctionList();
             sw.Stop();
             TimeSpan ts2 = sw.Elapsed;
             Console.WriteLine("Stopwatch总共花费{0}毫秒.", ts2.TotalMilliseconds);
@@ -75,18 +60,15 @@ namespace SqlFilterHelper
             Stopwatch swone = new Stopwatch();
             swone.Start();
 
-            Task<string> retconsole = SqlFilter.TestTwo(sql1, para1, funAllList);
+            Task<string> retconsole = SqlFilter.GetFilterSql(sql1, para1, funAllList);
             Console.WriteLine(retconsole.Result);
-            Console.WriteLine("--------------------------------------------------------------------------------------");
-            retconsole = SqlFilter.TestTwo(sql2, para2, funAllList);
+            retconsole = SqlFilter.GetFilterSql(sql2, para2, funAllList);
             Console.WriteLine(retconsole.Result);
-            Console.WriteLine("--------------------------------------------------------------------------------------");
 
             for (int i = 0; i < 1; i++)
             {
-                Task<string> ret = SqlFilter.TestTwo(sql3, para3, funAllList);
+                Task<string> ret = SqlFilter.GetFilterSql(sql3, para3, funAllList);
                 Console.WriteLine(ret.Result);
-                Console.WriteLine("--------------------------------------------------------------------------------------");
             }
 
 
