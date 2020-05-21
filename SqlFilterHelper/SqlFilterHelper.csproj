@@ -62,5 +62,8 @@
       <Name>RedisStudy.DAL.Abstraction</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="FunctionLibrary\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

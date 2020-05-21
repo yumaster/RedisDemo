@@ -6,9 +6,9 @@ using System.Runtime.InteropServices;
 // 控制。更改这些特性值可修改
 // 与程序集关联的信息。
 [assembly: AssemblyTitle("SqlFilterHelper")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("ZhangYu-2020520 Code Done")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("yumaster.net")]
 [assembly: AssemblyProduct("SqlFilterHelper")]
 [assembly: AssemblyCopyright("Copyright ©  2020")]
 [assembly: AssemblyTrademark("")]
