@@ -28,7 +28,6 @@ namespace SqlFilterHelper
             //Console.WriteLine("Stopwatch总共花费{0}秒.", ts2.TotalSeconds);
             //Console.ReadKey();
 
-
             #region 查询
             //string paraStr1 = "admin$zhangyu";
             //string paraStr2 = "zhangyu$F6F6CC9096591F2C";
