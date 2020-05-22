@@ -17,6 +17,6 @@ public class CustomFunAttribute:Attribute
     [Display(Name = "说明")]
     public string FunRemark { get; set; }
 
-    [Display(Name = "说明")]
+    [Display(Name = "参数列表")]
     public string ParaList { get; set; }
 }
