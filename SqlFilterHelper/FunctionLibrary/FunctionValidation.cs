@@ -14,7 +14,7 @@ namespace SqlFilterHelper.FunctionLibrary
         /// <param name="condition"></param>
         /// <param name="paraList"></param>
         /// <returns></returns>
-        [CustomFun(FunName = "VALNULL", FunRemark = "验证是否为空",FunType ="前置",ParaList = "string condition, List<string> paraList")]
+        [CustomFun(FunName = "VALNULL", FunRemark = "验证是否为空",FunType ="前置",ExecMode = "例如：VALNULL[userid={0}]")]
         public static string VALNULL(string condition, List<string> paraList)
         {
             string ret = string.Empty;

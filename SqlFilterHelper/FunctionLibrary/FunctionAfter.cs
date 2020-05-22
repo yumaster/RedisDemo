@@ -14,7 +14,7 @@ namespace SqlFilterHelper.FunctionLibrary
         /// </summary>
         /// <param name="obj"></param>
         /// <returns></returns>
-        [CustomFun(FunName = "GETDATA", FunRemark = "处理数据集", FunType = "后置", ParaList = "object obj")]
+        [CustomFun(FunName = "GETDATA", FunRemark = "处理数据集", FunType = "后置", ExecMode = "GETDATA[object]")]
         public static object GETDATA(object obj)
         {
 
@@ -49,7 +49,7 @@ namespace SqlFilterHelper.FunctionLibrary
         /// </summary>
         /// <param name="obj"></param>
         /// <returns></returns>
-        [CustomFun(FunName = "GETLIST", FunRemark = "处理数据列表", FunType = "后置", ParaList = "object obj")]
+        [CustomFun(FunName = "GETLIST", FunRemark = "处理数据列表", FunType = "后置", ExecMode = "GETLIST[object]")]
         public static object GETLIST(object obj)
         {
 

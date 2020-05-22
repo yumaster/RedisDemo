@@ -16,8 +16,8 @@ namespace RedisStudy.DAL.Abstraction.Models
         [Display(Name = "说明")]
         public string FunRemark { get; set; }
 
-        [Display(Name ="参数列表")]
-        public string ParaList { get; set; }
+        [Display(Name ="调用方式")]
+        public string ExecMode { get; set; }
 
         [Display(Name = "是否启用")]
         public bool IsUsed { get; set; }
