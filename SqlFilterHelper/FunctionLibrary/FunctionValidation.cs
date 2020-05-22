@@ -57,6 +57,5 @@ namespace SqlFilterHelper.FunctionLibrary
             }
             return condition;
         }
-
     }
 }
