@@ -61,7 +61,6 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-    <None Include="针对SQL进行可扩展函数的说明.docx" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\RedisHelper\RedisCommon.csproj">

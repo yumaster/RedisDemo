@@ -1,15 +1,11 @@
 ﻿using Newtonsoft.Json;
-using RedisCommon;
 using RedisStudy.DAL.Abstraction.Models;
 using SqlFilterHelper.FunctionLibrary;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace SqlFilterHelper
@@ -35,7 +31,7 @@ namespace SqlFilterHelper
                 }
                 else
                 {
-                    sqlStr = FunctionExe.ReplacePara(sqlStr, paraList);
+                    sqlStr = ReplacePara(sqlStr, paraList);
                 }
                 return sqlStr;
             });
@@ -48,8 +44,10 @@ namespace SqlFilterHelper
         /// <param name="paraAllList"></param>
         /// <param name="funAllList"></param>
         /// <returns></returns>
-        public static string DoBefore(string sqlStr, List<string> paraAllList, List<Function> funAllList)
+        public static string DoBefore(string sqlStr, List<string> paraAllListOld, List<Function> funAllList)
         {
+            List<string> paraAllList = paraAllListOld.Select(x=> x.Replace("{", "`").Replace("}", "^")).ToList();
+
             List<Function> lastList = GetOrderFunction(sqlStr, funAllList);//从已经筛选过的函数列表进行排序，即从内到外的函数顺序
             try
             {
@@ -75,9 +73,8 @@ namespace SqlFilterHelper
             {
                 return sqlStr;
             }
-
-            sqlStr = FunctionExe.ReplacePara(sqlStr, paraAllList);
-
+            sqlStr = ReplacePara(sqlStr, paraAllList);//替换没有包含函数的参数
+            sqlStr = sqlStr.Replace("`", "{").Replace("^", "}");
             return sqlStr;
         }
         #endregion

@@ -29,26 +29,26 @@ namespace SqlFilterHelper
             //Console.ReadKey();
 
             #region 查询
-            //string paraStr1 = "admin$zhangyu";
+            string paraStr1 = "select * from userinfo where VALNULL[userid={0}]";
             //string paraStr2 = "zhangyu$F6F6CC9096591F2C";
-            string paraStr3 = "$F6F6CC9096591F2C$zhangyu";
-            //string sql1 = "select * from userinfo where VALNULL[userid={0}] AND password=ENPWD[{1}]"; //当前SQL语句，包含两个函数
+            //string paraStr3 = "$F6F6CC9096591F2C$zhangyu";
+            string sql1 = "select * from userinfo where userid={0}"; //当前SQL语句，包含两个函数
             //string sql2 = "select * from userinfo where VALNULL[userid=BASE64[DEPWD[ENPWD[{0}]]]] AND pwd=DEPWD[{1}]"; //当前SQL语句，包含两个函数
-            string sql3 = "GETLIST[GETDATA[select * from userinfo where VALNULL[userid={0}] AND zhangyu=DEPWD[{1}]   AND VALNULL[password={2}]]]"; //当前SQL语句，包含两个函数
+            //string sql3 = "GETLIST[GETDATA[select * from userinfo where VALNULL[userid={0}] AND zhangyu=DEPWD[{1}]   AND VALNULL[password={2}]]]"; //当前SQL语句，包含两个函数
 
-            //List<string> para1 = paraStr1.Split('$').ToList();//当前传入的参数列表
+            List<string> para1 = paraStr1.Split('$').ToList();//当前传入的参数列表
             //List<string> para2 = paraStr2.Split('$').ToList();//当前传入的参数列表
-            List<string> para3 = paraStr3.Split('$').ToList();
+            //List<string> para3 = paraStr3.Split('$').ToList();
 
-            //Task<string> retone = SqlFilter.GetFilterSql(sql1, para1, funAllList);
-            //Console.WriteLine(retone.Result);
+            Task<string> ret = SqlFilter.GetFilterSql(sql1, para1, funAllList);
+            Console.WriteLine(ret.Result);
             //Console.WriteLine("--------------------------------------------------------------------------------------");
             //Task<string> rettwo = SqlFilter.GetFilterSql(sql2, para2, funAllList);
             //Console.WriteLine(rettwo.Result);
             //Console.WriteLine("--------------------------------------------------------------------------------------");
 
-            Task<string> ret = SqlFilter.GetFilterSql(sql3, para3, funAllList.Where(x=>x.FunType=="前置").ToList());
-            Console.WriteLine(ret.Result);
+            //Task<string> ret = SqlFilter.GetFilterSql(sql3, para3, funAllList.Where(x=>x.FunType=="前置").ToList());
+            //Console.WriteLine(ret.Result);
 
             #endregion
 
