@@ -31,7 +31,9 @@ namespace SqlFilterHelper
                 }
                 else//如果没有前置条件，直接替换参数即可
                 {
-                    sqlStr = ReplacePara(sqlStr, paraList);
+                    List<string> paraNewList = paraList.Select(x => x.Replace("{", "`").Replace("}", "^")).ToList();
+                    sqlStr = ReplacePara(sqlStr, paraNewList);
+                    sqlStr = sqlStr.Replace("`", "{").Replace("^", "}");
                 }
                 return sqlStr;
             });

@@ -28,19 +28,26 @@ namespace SqlFilterHelper
             //Console.WriteLine("Stopwatch总共花费{0}秒.", ts2.TotalSeconds);
             //Console.ReadKey();
 
+
+
+
+            string paras = "userinfo$username$pwd$描述";
+            string sqls = "alter table {0} add {1}{2} ;EXECUTE   sp_addextendedproperty   N''MS_Description'',''{3}'',N''user'',N''dbo'',N''table'',N''{0}'',N''column'',N''{1}'' ";
+
+
             #region 查询
-            string paraStr1 = "select * from userinfo where VALNULL[userid={0}]";
+            //string paraStr1 = "select * from userinfo where VALNULL[userid={0}]";
             //string paraStr2 = "zhangyu$F6F6CC9096591F2C";
             //string paraStr3 = "$F6F6CC9096591F2C$zhangyu";
-            string sql1 = "select * from userinfo where userid={0}"; //当前SQL语句，包含两个函数
+            //string sql1 = "select * from userinfo where userid={0}"; //当前SQL语句，包含两个函数
             //string sql2 = "select * from userinfo where VALNULL[userid=BASE64[DEPWD[ENPWD[{0}]]]] AND pwd=DEPWD[{1}]"; //当前SQL语句，包含两个函数
             //string sql3 = "GETLIST[GETDATA[select * from userinfo where VALNULL[userid={0}] AND zhangyu=DEPWD[{1}]   AND VALNULL[password={2}]]]"; //当前SQL语句，包含两个函数
 
-            List<string> para1 = paraStr1.Split('$').ToList();//当前传入的参数列表
+            //List<string> para1 = paraStr1.Split('$').ToList();//当前传入的参数列表
             //List<string> para2 = paraStr2.Split('$').ToList();//当前传入的参数列表
             //List<string> para3 = paraStr3.Split('$').ToList();
 
-            Task<string> ret = SqlFilter.GetFilterSql(sql1, para1, funAllList);
+            Task<string> ret = SqlFilter.GetFilterSql(sqls, paras.Split('$').ToList(), funAllList);
             Console.WriteLine(ret.Result);
             //Console.WriteLine("--------------------------------------------------------------------------------------");
             //Task<string> rettwo = SqlFilter.GetFilterSql(sql2, para2, funAllList);
