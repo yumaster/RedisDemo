@@ -29,7 +29,7 @@ namespace SqlFilterHelper
                     //处理前置条件
                     sqlStr = DoBefore(sqlStr, paraList, funAllList.Where(x => x.FunType == "前置").ToList());
                 }
-                else
+                else//如果没有前置条件，直接替换参数即可
                 {
                     sqlStr = ReplacePara(sqlStr, paraList);
                 }
@@ -46,7 +46,7 @@ namespace SqlFilterHelper
         /// <returns></returns>
         public static string DoBefore(string sqlStr, List<string> paraAllListOld, List<Function> funAllList)
         {
-            List<string> paraAllList = paraAllListOld.Select(x=> x.Replace("{", "`").Replace("}", "^")).ToList();
+            List<string> paraAllList = paraAllListOld.Select(x=> x.Replace("{", "`").Replace("}", "^")).ToList();//把参数中花括号进行替换
 
             List<Function> lastList = GetOrderFunction(sqlStr, funAllList);//从已经筛选过的函数列表进行排序，即从内到外的函数顺序
             try
@@ -74,7 +74,7 @@ namespace SqlFilterHelper
                 return sqlStr;
             }
             sqlStr = ReplacePara(sqlStr, paraAllList);//替换没有包含函数的参数
-            sqlStr = sqlStr.Replace("`", "{").Replace("^", "}");
+            sqlStr = sqlStr.Replace("`", "{").Replace("^", "}");//整条SQL把花括号还原，即还原之前参数中的花括号
             return sqlStr;
         }
         #endregion
