@@ -32,6 +32,23 @@ namespace SqlFilterHelper
                 else//如果没有前置条件，直接替换参数即可
                 {
                     List<string> paraNewList = paraList.Select(x => x.Replace("{", "`").Replace("}", "^")).ToList();
+                    //for (int i = 0; i < paraNewList.Count; i++)
+                    //{
+                    //    string[] sparas = paraNewList[i].Split('~');
+                    //    string moresql = "";
+                    //    for (int j = 0; j < sparas.Length; j++)
+                    //    {
+                    //        if (i == 0)//第一次拼sql
+                    //        {
+                    //            moresql += sqlStr.Replace("{" + i + "}", "'" + sparas[j] + "'") + ";";
+                    //        }
+                    //        else//只替换如：{0}{1}{2}...
+                    //        {
+                    //            moresql += sqlStr.Split(';')[j].Replace("{" + i + "}", "'" + sparas[j] + "'") + ";";
+                    //        }
+                    //    }
+                    //    sqlStr = moresql;
+                    //}
                     sqlStr = ReplacePara(sqlStr, paraNewList);
                     sqlStr = sqlStr.Replace("`", "{").Replace("^", "}");
                 }
