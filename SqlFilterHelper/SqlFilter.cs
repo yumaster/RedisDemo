@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace SqlFilterHelper
 {
-    public class SqlFilter:FunExtension
+    public class SqlFilter : FunExtension
     {
         #region 前置-获取过滤前置条件后的sql
         /// <summary>
@@ -18,16 +18,16 @@ namespace SqlFilterHelper
         /// </summary>
         /// <param name="sqlStr"></param>
         /// <param name="paraList"></param>
-        /// <param name="funAllList"></param>
         /// <returns></returns>
-        public static Task<string> GetFilterSql(string sqlStr, List<string> paraList, List<Function> funAllList)
+        public static Task<string> GetFilterSql(string sqlStr, List<string> paraList)
         {
+            List<Function> funAllList = GetFunctionList().Where(x => x.FunType == "前置").ToList();
             var task = Task.Run(() =>
             {
                 if (HasFunction(sqlStr, funAllList))
                 {
                     //处理前置条件
-                    sqlStr = DoBefore(sqlStr, paraList, funAllList.Where(x => x.FunType == "前置").ToList());
+                    sqlStr = DoBefore(sqlStr, paraList, funAllList);
                 }
                 else//如果没有前置条件，直接替换参数即可
                 {
@@ -49,6 +49,7 @@ namespace SqlFilterHelper
                     //    }
                     //    sqlStr = moresql;
                     //}
+
                     sqlStr = ReplacePara(sqlStr, paraNewList);
                     sqlStr = sqlStr.Replace("`", "{").Replace("^", "}");
                 }
@@ -65,7 +66,7 @@ namespace SqlFilterHelper
         /// <returns></returns>
         public static string DoBefore(string sqlStr, List<string> paraAllListOld, List<Function> funAllList)
         {
-            List<string> paraAllList = paraAllListOld.Select(x=> x.Replace("{", "`").Replace("}", "^")).ToList();//把参数中花括号进行替换
+            List<string> paraAllList = paraAllListOld.Select(x => x.Replace("{", "`").Replace("}", "^")).ToList();//把参数中花括号进行替换
 
             List<Function> lastList = GetOrderFunction(sqlStr, funAllList);//从已经筛选过的函数列表进行排序，即从内到外的函数顺序
             try
@@ -104,10 +105,15 @@ namespace SqlFilterHelper
         /// <summary>
         /// 根据已经过滤后的函数列表，顺序执行后置函数，结果返回object
         /// </summary>
-        /// <param name="lastList"></param>
+        /// <param name="sqlStr"></param>
+        /// <param name="objPara"></param>
+        /// <param name="typeName"></param>
         /// <returns></returns>
-        public static object GetAfterFun(object objPara,List<Function>lastList)
+        public static object GetAfterFun(string sqlStr, object objPara)
         {
+            List<Function> funAllList = GetFunctionList().Where(x => x.FunType == "后置").ToList();
+            List<Function> lastList = GetOrderFunction(sqlStr, funAllList);
+
             object objRet = objPara;
             try
             {
@@ -136,13 +142,14 @@ namespace SqlFilterHelper
         /// </summary>
         /// <param name=""></param>
         /// <returns></returns>
-        public static Task<string> GetAfterSql(string sqlStr, List<Function> funAllList)
+        public static Task<string> GetAfterSql(string sqlStr)
         {
+            List<Function> funAllList = GetFunctionList().Where(x => x.FunType == "后置").ToList();
             var task = Task.Run(() =>
             {
                 if (HasFunction(sqlStr, funAllList))
                 {
-                    sqlStr = DoAfter(sqlStr, funAllList.Where(x => x.FunType == "后置").ToList());
+                    sqlStr = DoAfter(sqlStr, funAllList);
                 }
                 return sqlStr;
             });

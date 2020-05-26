@@ -36,33 +36,33 @@ namespace SqlFilterHelper
 
 
             #region 查询
-            string paraStr1 = "zhan{0}gyu~ni{0}hao$123~456";
+            //string paraStr1 = "zhan{0}gyu~ni{0}hao$123~456";
             //string paraStr2 = "zhangyu$F6F6CC9096591F2C";
-            //string paraStr3 = "$F6F6CC9096591F2C$zhangyu";
-            string sql1 = "select * from userinfo where userid={0} and pwd={1}"; //当前SQL语句，包含两个函数
+            string paraStr3 = "$F6F6CC9096591F2C$zhangyu";
+            //string sql1 = "select * from userinfo where userid={0} and pwd={1}"; //当前SQL语句，包含两个函数
             //string sql2 = "select * from userinfo where VALNULL[userid=BASE64[DEPWD[ENPWD[{0}]]]] AND pwd=DEPWD[{1}]"; //当前SQL语句，包含两个函数
-            //string sql3 = "GETLIST[GETDATA[select * from userinfo where VALNULL[userid={0}] AND zhangyu=DEPWD[{1}]   AND VALNULL[password={2}]]]"; //当前SQL语句，包含两个函数
+            string sql3 = "GETLIST[GETDATA[select * from userinfo where VALNULL[userid={0}] AND zhangyu=DEPWD[{1}]   AND VALNULL[password={2}]]]"; //当前SQL语句，包含两个函数
 
-            List<string> para1 = paraStr1.Split('$').ToList();//当前传入的参数列表
+            //List<string> para1 = paraStr1.Split('$').ToList();//当前传入的参数列表
             //List<string> para2 = paraStr2.Split('$').ToList();//当前传入的参数列表
-            //List<string> para3 = paraStr3.Split('$').ToList();
+            List<string> para3 = paraStr3.Split('$').ToList();
 
-            Task<string> ret = SqlFilter.GetFilterSql(sql1, para1, funAllList);
-            Console.WriteLine(ret.Result);
+            //Task<string> ret = SqlFilter.GetFilterSql(sql1, para1, "前置");
+            //Console.WriteLine(ret.Result);
             //Console.WriteLine("--------------------------------------------------------------------------------------");
             //Task<string> rettwo = SqlFilter.GetFilterSql(sql2, para2, funAllList);
             //Console.WriteLine(rettwo.Result);
             //Console.WriteLine("--------------------------------------------------------------------------------------");
 
-            //Task<string> ret = SqlFilter.GetFilterSql(sql3, para3, funAllList.Where(x=>x.FunType=="前置").ToList());
-            //Console.WriteLine(ret.Result);
+            Task<string> ret = SqlFilter.GetFilterSql(sql3, para3);
+            Console.WriteLine(ret.Result);
 
             #endregion
 
             #region 查询之后的后置函数
             if (SqlFilter.HasFunction(ret.Result, funAllList.Where(x => x.FunType == "后置").ToList()))
             {
-                string afterSql = SqlFilter.GetAfterSql(ret.Result, funAllList).Result;
+                string afterSql = SqlFilter.GetAfterSql(ret.Result).Result;
 
                 DataSet dstmp = new DataSet();
                 if (dstmp.Tables.Contains("TAB_NM"))//已经存在该表的话，删除掉  
@@ -85,8 +85,8 @@ namespace SqlFilterHelper
                 dstmp.Tables.Add(table); //把信息表放入DataSet中  
 
 
-                List<Function> functions = SqlFilter.GetOrderFunction(ret.Result, funAllList);
-                var obj = SqlFilter.GetAfterFun(dstmp, functions);
+                //List<Function> functions = SqlFilter.GetOrderFunction(ret.Result, funAllList);
+                var obj = SqlFilter.GetAfterFun(ret.Result, dstmp);
 
                 Console.WriteLine("返回true," + afterSql + "");
             }
