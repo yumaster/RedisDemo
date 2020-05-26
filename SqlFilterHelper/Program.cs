@@ -55,6 +55,7 @@ namespace SqlFilterHelper
             //Console.WriteLine("--------------------------------------------------------------------------------------");
 
             Task<string> ret = SqlFilter.GetFilterSql(sql3, para3);
+
             Console.WriteLine(ret.Result);
 
             #endregion
